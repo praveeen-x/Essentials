@@ -153,7 +153,7 @@ if(-Not $SkipToolPackageRestore.IsPresent) {
     Push-Location
     Set-Location $TOOLS_DIR
 
-    # Check for changes in packages.config and remove installed tools if true.
+    # Check for changes in packages.config and remove already installed tools if true.
     [string] $md5Hash = MD5HashFile($PACKAGES_CONFIG)
     if((!(Test-Path $PACKAGES_CONFIG_MD5)) -Or
       ($md5Hash -ne (Get-Content $PACKAGES_CONFIG_MD5 ))) {
